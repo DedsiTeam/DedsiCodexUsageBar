@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Swift / Xcode build
+/.build/
+/Packages/
+/dist/
+*.app
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+
+# Secrets & local credentials (never commit)
+.netrc
+.env
+.env.*
+*.pem
+*.p12
+auth.json
+**/auth.json
+credentials.json
+**/credentials.json
+Secrets/
