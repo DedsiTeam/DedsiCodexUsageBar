@@ -25,6 +25,13 @@ rm -rf "$APP_DIR"
 mkdir -p "$MACOS_DIR" "$RESOURCES_DIR"
 cp "$BIN" "$MACOS_DIR/$APP_NAME"
 
+ICON_ICNS="$ROOT/Resources/AppIcon.icns"
+if [[ -f "$ICON_ICNS" ]]; then
+  cp "$ICON_ICNS" "$RESOURCES_DIR/AppIcon.icns"
+else
+  echo "Warning: missing Resources/AppIcon.icns" >&2
+fi
+
 cat > "$APP_DIR/Contents/Info.plist" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -40,6 +47,8 @@ cat > "$APP_DIR/Contents/Info.plist" <<EOF
   <string>6.0</string>
   <key>CFBundleName</key>
   <string>Dedsi Codex 额度</string>
+  <key>CFBundleIconFile</key>
+  <string>AppIcon</string>
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleShortVersionString</key>

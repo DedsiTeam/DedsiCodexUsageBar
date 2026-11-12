@@ -67,6 +67,24 @@ codex login
 ls ~/.codex/auth.json
 ```
 
+## 图标
+
+App 图标来源：`Assets/logo-source.png`（当前为桌面 `DCUB-logo.png`）  
+
+已生成：
+
+- `Assets/logo-square.png`（正方形黑底适配）
+- `Resources/AppIcon.iconset/`（各尺寸 PNG）
+- `Resources/AppIcon.icns`（打包进 `.app`）
+
+如需更换 logo：
+
+```bash
+cp ~/Desktop/DCUB-logo.png Assets/logo-source.png
+./scripts/generate-icons.sh
+./scripts/build-app.sh
+```
+
 ## 打包
 
 在项目根目录执行：
@@ -79,7 +97,7 @@ ls ~/.codex/auth.json
 
 1. `swift build -c release --product DedsiCodexUsageBar`
 2. 组装 `dist/DedsiCodexUsageBar.app`
-3. 写入 `Info.plist`（菜单栏 App，不显示 Dock）
+3. 写入 `Info.plist`（菜单栏 App，不显示 Dock）并嵌入 `AppIcon.icns`
 4. 进行本地 ad-hoc 签名（个人使用，不上架 App Store）
 
 产物路径：
